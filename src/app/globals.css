@@ -1,0 +1,16 @@
+@tailwind base;@tailwind components;@tailwind utilities;
+:root{color-scheme:dark}
+html{scroll-padding-top:80px}
+body{@apply bg-obsidian text-slate-100 antialiased overflow-x-hidden}
+:focus-visible{outline:2px solid #22e3ff;outline-offset:3px;border-radius:6px}
+@layer components{
+.sec{@apply mx-auto flex min-h-[100svh] max-w-5xl flex-col justify-center px-[6vw] pb-16 pt-28}
+.eyebrow{@apply font-mono text-xs uppercase tracking-[.22em] text-cyan2}
+.card{@apply rounded-2xl border border-white/10 bg-navy/60 p-5 backdrop-blur-md}
+.chip{@apply rounded-full border border-white/10 px-3 py-1 text-sm text-silver transition hover:-translate-y-0.5 hover:border-cyan2 hover:text-cyan2}
+.btn{@apply inline-block cursor-pointer rounded-full border border-white/15 px-6 py-3 font-semibold transition hover:-translate-y-0.5}
+.btn-p{@apply border-0 bg-gradient-to-r from-cyan2 to-violet2 text-obsidian shadow-[0_0_28px_rgba(34,227,255,.3)]}}
+.cur{position:fixed;left:-14px;top:-14px;width:28px;height:28px;border:1px solid #22e3ff;border-radius:50%;pointer-events:none;z-index:90;transition:width .2s,height .2s,margin .2s,background .2s}
+.cur[data-h=true]{width:52px;height:52px;margin:-12px 0 0 -12px;background:rgba(34,227,255,.12)}
+.fallback{background:radial-gradient(circle at 70% 40%,rgba(34,227,255,.2),transparent 45%),radial-gradient(circle at 30% 70%,rgba(139,108,255,.2),transparent 45%)}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition-duration:.01ms!important}}

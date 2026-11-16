@@ -1,15 +1,41 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Space_Grotesk, JetBrains_Mono } from "next/font/google";
+import { ThemeProvider } from "@/components/ThemeProvider";
 import "./globals.css";
-const inter = Inter({ subsets: ["latin"] });
-const url = process.env.NEXT_PUBLIC_SITE_URL ?? "https://example.vercel.app";
+
+const space = Space_Grotesk({
+  variable: "--font-space",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+});
+
+const mono = JetBrains_Mono({
+  variable: "--font-mono-var",
+  subsets: ["latin"],
+  weight: ["400", "500"],
+});
+
 export const metadata: Metadata = {
-  metadataBase: new URL(url),
-  title: "Raza Ali — Cybersecurity & IT",
-  description: "Portfolio of Raza Ali, BSc IT student at the University of Sindh focused on cybersecurity.",
-  openGraph: { title: "Raza Ali — Cybersecurity & IT", description: "Engineering a more secure digital future.", type: "website", url },
-  twitter: { card: "summary_large_image" },
+  title: "Raza Ali — Cybersecurity & ML",
+  description:
+    "Portfolio of Raza Ali, Cybersecurity & ML enthusiast and Python developer. PhishLens, data tooling, and security projects.",
+  keywords: ["Raza Ali", "Cybersecurity", "Machine Learning", "Python", "PhishLens"],
+  authors: [{ name: "Raza Ali" }],
+  openGraph: {
+    title: "Raza Ali — Cybersecurity & ML",
+    description: "Cybersecurity & ML enthusiast. Python developer. Builder of PhishLens.",
+    type: "website",
+  },
 };
-export default function Root({ children }: { children: React.ReactNode }) {
-  return <html lang="en"><body className={inter.className}>{children}</body></html>;
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en" suppressHydrationWarning className={`${space.variable} ${mono.variable}`}>
+      <body className="min-h-screen bg-bg text-foreground antialiased">
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+          {children}
+        </ThemeProvider>
+      </body>
+    </html>
+  );
 }

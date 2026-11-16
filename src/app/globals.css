@@ -1,16 +1,60 @@
-@tailwind base;@tailwind components;@tailwind utilities;
-:root{color-scheme:dark}
-html{scroll-padding-top:80px}
-body{@apply bg-obsidian text-slate-100 antialiased overflow-x-hidden}
-:focus-visible{outline:2px solid #22e3ff;outline-offset:3px;border-radius:6px}
-@layer components{
-.sec{@apply mx-auto flex min-h-[100svh] max-w-5xl flex-col justify-center px-[6vw] pb-16 pt-28}
-.eyebrow{@apply font-mono text-xs uppercase tracking-[.22em] text-cyan2}
-.card{@apply rounded-2xl border border-white/10 bg-navy/60 p-5 backdrop-blur-md}
-.chip{@apply rounded-full border border-white/10 px-3 py-1 text-sm text-silver transition hover:-translate-y-0.5 hover:border-cyan2 hover:text-cyan2}
-.btn{@apply inline-block cursor-pointer rounded-full border border-white/15 px-6 py-3 font-semibold transition hover:-translate-y-0.5}
-.btn-p{@apply border-0 bg-gradient-to-r from-cyan2 to-violet2 text-obsidian shadow-[0_0_28px_rgba(34,227,255,.3)]}}
-.cur{position:fixed;left:-14px;top:-14px;width:28px;height:28px;border:1px solid #22e3ff;border-radius:50%;pointer-events:none;z-index:90;transition:width .2s,height .2s,margin .2s,background .2s}
-.cur[data-h=true]{width:52px;height:52px;margin:-12px 0 0 -12px;background:rgba(34,227,255,.12)}
-.fallback{background:radial-gradient(circle at 70% 40%,rgba(34,227,255,.2),transparent 45%),radial-gradient(circle at 30% 70%,rgba(139,108,255,.2),transparent 45%)}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition-duration:.01ms!important}}
+@import "tailwindcss";
+@config "../../tailwind.config.ts";
+
+:root {
+  --background: #050509;
+  --foreground: #e2e8f0;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-space);
+  --font-mono: var(--font-mono-var);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-space), ui-sans-serif, system-ui;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgba(34, 211, 238, 0.3);
+  color: #fff;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glow-text {
+  background: linear-gradient(135deg, #22d3ee, #a78bfa, #f472b6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.noise {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}

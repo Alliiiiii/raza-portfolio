@@ -51,6 +51,14 @@ const projects: Project[] = [
     icon: Sparkles,
     github: "https://github.com/Alliiiiii",
   },
+  {
+    title: "SentinelLog AI",
+    desc: "Lightweight SIEM dashboard: log ingestion, attack visualization, AI threat summaries. FastAPI + Next.js + Docker.",
+    tags: ["FastAPI", "Next.js", "Docker", "AI"],
+    icon: Shield,
+    github: "https://github.com/Alliiiiii/sentinellog-ai",
+    featured: true,
+  },
 ];
 
 export default function Projects() {

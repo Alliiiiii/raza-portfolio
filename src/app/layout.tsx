@@ -16,6 +16,7 @@ const mono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://raza-portfolio-lemon.vercel.app"),
   title: "Raza Ali — Cybersecurity & ML",
   description:
     "Portfolio of Raza Ali, Cybersecurity & ML enthusiast and Python developer. PhishLens, data tooling, and security projects.",
@@ -25,6 +26,13 @@ export const metadata: Metadata = {
     title: "Raza Ali — Cybersecurity & ML",
     description: "Cybersecurity & ML enthusiast. Python developer. Builder of PhishLens.",
     type: "website",
+    images: ["/screenshot.png"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Raza Ali — Cybersecurity & ML",
+    description: "Cybersecurity & ML enthusiast. Python developer. Builder of PhishLens.",
+    images: ["/screenshot.png"],
   },
 };
 

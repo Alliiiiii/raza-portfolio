@@ -3,7 +3,7 @@
 A modern, highly animated 3D portfolio built with Next.js 16, Tailwind CSS 4, Framer Motion, and React Three Fiber.
 
 ## 🔗 Live Demo
-**[View Live Site →](https://portfolio-smoky-six-22.vercel.app)**
+**[View Live Site →](https://raza-portfolio.vercel.app)**
 
 ## 📸 Preview
 ![Portfolio Screenshot](./public/screenshot.png)
